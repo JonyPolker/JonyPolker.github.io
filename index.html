@@ -8,7 +8,7 @@
     <style>
         /* Обнуление и базовая настройка */
         * {
-            margin: 00;
+            margin: -20;
             padding: 0;
             box-sizing: border-box;
         }
@@ -19,21 +19,24 @@
         }
 
         body {
-  min-height: 100vh;
-  height: 100%;
-  /*padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);*/
-  background: linear-gradient(145deg, #0b0c1a 0%, #1a1b2f 100%) fixed;
-  background-size: cover;
-  background-position: center;
-  font-family: -apple-system, 'Helvetica Neue', 'Segoe UI', Roboto, system-ui, sans-serif;
-  display: flex;
-  align-items: flex-start;  /* ← было center, теперь прижато к верху */
-  justify-content: center;
-  color: #fff;
-}
+            min-height: 100vh;
+            height: 100%;
+            /* Для iPhone с динамическим островом и безопасными зонами */
+            padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
+            /* Фон с фиксацией на всю страницу */
+            background: linear-gradient(145deg, #0b0c1a 0%, #1a1b2f 100%) fixed;
+            background-size: cover;
+            background-position: center;
+            font-family: -apple-system, 'Helvetica Neue', 'Segoe UI', Roboto, system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
 
         /* Главный контейнер — карточка с поздравлением */
         .birthday-card {
+            margin-top: 100px;
             max-width: 430px;
             /* ширина близка к экрану iPhone 16 Pro / 17 Pro Max */
             width: 100%;
