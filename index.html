@@ -1,408 +1,569 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
-  <title>С Днём Рождения! 🎂</title>
-  <!-- Оптимизация под iPhone 16 Pro & 17 Pro Max -->
-  <style>
-    /* Обнуление и базовая настройка */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <title>С Днём Рождения! 🎂</title>
+    <!-- Оптимизация под iPhone 16 Pro & 17 Pro Max -->
+    <style>
+        /* Обнуление и базовая настройка */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    body {
-      min-height: 20vh;
-      /* Для iPhone с динамическим островом и безопасными зонами */
-      padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
-      background: linear-gradient(145deg, #0b0c1a 0%, #1a1b2f 100%);
-      font-family: -apple-system, 'Helvetica Neue', 'Segoe UI', Roboto, system-ui, sans-serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      /* Адаптивный фон с переливами */
-      background-attachment: fixed;
-    }
+        /* --- ФОН НА ВСЮ СТРАНИЦУ (исправлено) --- */
+        html {
+            height: 100%;
+        }
 
-    /* Главный контейнер — карточка с поздравлением */
-    .birthday-card {
-      max-width: 430px;  /* ширина близка к экрану iPhone 16 Pro / 17 Pro Max */
-      width: 100%;
-      margin: 0 auto;
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(12px) saturate(180%);
-      -webkit-backdrop-filter: blur(12px) saturate(180%);
-      border-radius: 64px 64px 48px 48px;
-      padding: 36px 24px 40px;
-      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 215, 0, 0.1);
-      border: 1px solid rgba(255, 215, 0, 0.15);
-      transition: all 0.2s ease;
-      text-align: center;
-      /* Анимация появления */
-      animation: cardFade 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1) forwards;
-      transform: scale(0.96);
-      opacity: 0;
-    }
+        body {
+            min-height: 100vh;
+            height: 100%;
+            /* Для iPhone с динамическим островом и безопасными зонами */
+            padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px) env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
+            /* Фон с фиксацией на всю страницу */
+            background: linear-gradient(145deg, #0b0c1a 0%, #1a1b2f 100%) fixed;
+            background-size: cover;
+            background-position: center;
+            font-family: -apple-system, 'Helvetica Neue', 'Segoe UI', Roboto, system-ui, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
 
-    @keyframes cardFade {
-      0% { opacity: 0; transform: scale(0.92) translateY(20px); }
-      100% { opacity: 1; transform: scale(1) translateY(0); }
-    }
+        /* Главный контейнер — карточка с поздравлением */
+        .birthday-card {
+            max-width: 430px;
+            /* ширина близка к экрану iPhone 16 Pro / 17 Pro Max */
+            width: 100%;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px) saturate(180%);
+            -webkit-backdrop-filter: blur(12px) saturate(180%);
+            border-radius: 64px 64px 48px 48px;
+            padding: 36px 24px 40px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            transition: all 0.2s ease;
+            text-align: center;
+            /* Анимация появления */
+            animation: cardFade 0.8s cubic-bezier(0.2, 0.9, 0.3, 1.1) forwards;
+            transform: scale(0.96);
+            opacity: 0;
+        }
 
-    /* Заголовок с именем (его можно заменить) */
-    .greeting-name {
-      font-size: 2.4rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      background: linear-gradient(135deg, #f9d976, #f39c12, #f1c40f);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 0 20px rgba(241, 196, 15, 0.2);
-      margin-bottom: 8px;
-    }
+        @keyframes cardFade {
+            0% {
+                opacity: 0;
+                transform: scale(0.92) translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
 
-    .greeting-sub {
-      font-size: 1.0rem;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.6);
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      margin-bottom: 20px;
-      border-bottom: 1px dashed rgba(255, 215, 0, 0.2);
-      padding-bottom: 16px;
-    }
+        /* Заголовок с именем (его можно заменить) */
+        .greeting-name {
+            font-size: 2.4rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            background: linear-gradient(135deg, #f9d976, #f39c12, #f1c40f);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(241, 196, 15, 0.2);
+            margin-bottom: 8px;
+        }
 
-    /* Основной текст поздравления */
-    .message {
-      font-size: 1.3rem;
-      line-height: 1.6;
-      font-weight: 400;
-      color: #f0eef7;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-      margin: 24px 0 30px;
-      padding: 0 6px;
-      letter-spacing: 0.3px;
-    }
+        .greeting-sub {
+            font-size: 1.0rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            border-bottom: 1px dashed rgba(255, 215, 0, 0.2);
+            padding-bottom: 16px;
+        }
 
-    .message span {
-      display: inline-block;
-      background: rgba(255, 215, 0, 0.08);
-      padding: 0 8px;
-      border-radius: 40px;
-      font-weight: 500;
-    }
+        /* Основной текст поздравления */
+        .message {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            font-weight: 400;
+            color: #f0eef7;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            margin: 24px 0 30px;
+            padding: 0 6px;
+            letter-spacing: 0.3px;
+        }
 
-    /* Эмодзи-конфетти в виде анимированных иконок */
-    .emoji-rain {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px 16px;
-      font-size: 2.4rem;
-      margin: 16px 0 24px;
-      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
-    }
+        .message span {
+            display: inline-block;
+            background: rgba(255, 215, 0, 0.08);
+            padding: 0 8px;
+            border-radius: 40px;
+            font-weight: 500;
+        }
 
-    .emoji-rain span {
-      display: inline-block;
-      animation: float 3s infinite alternate ease-in-out;
-      transform-origin: center;
-    }
+        /* Эмодзи-конфетти в виде анимированных иконок */
+        .emoji-rain {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px 16px;
+            font-size: 2.4rem;
+            margin: 16px 0 24px;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        }
 
-    .emoji-rain span:nth-child(2) { animation-delay: 0.2s; }
-    .emoji-rain span:nth-child(3) { animation-delay: 0.5s; }
-    .emoji-rain span:nth-child(4) { animation-delay: 0.8s; }
-    .emoji-rain span:nth-child(5) { animation-delay: 0.3s; }
-    .emoji-rain span:nth-child(6) { animation-delay: 0.6s; }
-    .emoji-rain span:nth-child(7) { animation-delay: 0.9s; }
+        .emoji-rain span {
+            display: inline-block;
+            animation: float 3s infinite alternate ease-in-out;
+            transform-origin: center;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
 
-    @keyframes float {
-      0% { transform: translateY(0px) rotate(0deg) scale(1); }
-      100% { transform: translateY(-12px) rotate(6deg) scale(1.08); }
-    }
+        .emoji-rain span:hover {
+            transform: scale(1.2);
+        }
 
-    /* Кнопка "запустить звёзды" (интерактив) */
-    .action-button {
-      background: linear-gradient(145deg, #f7dc6f, #f1c40f);
-      border: none;
-      padding: 18px 32px;
-      border-radius: 60px;
-      font-size: 1.2rem;
-      font-weight: 600;
-      color: #0b0c1a;
-      letter-spacing: 1px;
-      box-shadow: 0 12px 28px rgba(241, 196, 15, 0.25);
-      transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1);
-      cursor: pointer;
-      width: 100%;
-      max-width: 280px;
-      margin: 12px auto 8px;
-      backdrop-filter: blur(4px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-    }
+        .emoji-rain span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+        .emoji-rain span:nth-child(3) {
+            animation-delay: 0.5s;
+        }
+        .emoji-rain span:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+        .emoji-rain span:nth-child(5) {
+            animation-delay: 0.3s;
+        }
+        .emoji-rain span:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+        .emoji-rain span:nth-child(7) {
+            animation-delay: 0.9s;
+        }
 
-    .action-button:active {
-      transform: scale(0.94);
-      box-shadow: 0 6px 16px rgba(241, 196, 15, 0.3);
-      background: linear-gradient(145deg, #f1c40f, #e6b800);
-    }
+        @keyframes float {
+            0% {
+                transform: translateY(0px) rotate(0deg) scale(1);
+            }
+            100% {
+                transform: translateY(-12px) rotate(6deg) scale(1.08);
+            }
+        }
 
-    .action-button i {
-      display: inline-block;
-      margin-right: 10px;
-    }
+        /* Кнопка "запустить звёзды" (интерактив) */
+        .action-button {
+            background: linear-gradient(145deg, #f7dc6f, #f1c40f);
+            border: none;
+            padding: 18px 32px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0b0c1a;
+            letter-spacing: 1px;
+            box-shadow: 0 12px 28px rgba(241, 196, 15, 0.25);
+            transition: all 0.2s cubic-bezier(0.2, 0.9, 0.4, 1);
+            cursor: pointer;
+            width: 100%;
+            max-width: 280px;
+            margin: 12px auto 8px;
+            backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    /* Дополнительный текст / подпись */
-    .footer-note {
-      margin-top: 28px;
-      font-size: 0.85rem;
-      color: rgba(255, 255, 255, 0.25);
-      letter-spacing: 2px;
-      border-top: 1px solid rgba(255, 255, 255, 0.04);
-      padding-top: 22px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
+        .action-button:active {
+            transform: scale(0.94);
+            box-shadow: 0 6px 16px rgba(241, 196, 15, 0.3);
+            background: linear-gradient(145deg, #f1c40f, #e6b800);
+        }
 
-    .footer-note span {
-      background: rgba(255, 255, 255, 0.02);
-      padding: 6px 16px;
-      border-radius: 40px;
-      backdrop-filter: blur(2px);
-    }
+        .action-button i {
+            display: inline-block;
+            margin-right: 10px;
+        }
 
-    /* Специально для iPhone 16 Pro / 17 Pro Max */
-    @supports (padding: max(0px)) {
-      body {
-        padding-left: max(20px, env(safe-area-inset-left));
-        padding-right: max(20px, env(safe-area-inset-right));
-        padding-top: max(24px, env(safe-area-inset-top));
-        padding-bottom: max(24px, env(safe-area-inset-bottom));
-      }
-    }
+        /* --- ССЫЛКА-КНОПКА ВНИЗУ (исправлено) --- */
+        .footer-link {
+            display: block;
+            text-decoration: none;
+            margin-top: 20px;
+            width: 100%;
+        }
 
-    /* Адаптация под маленькие экраны (на всякий случай) */
-    @media (max-width: 400px) {
-      .birthday-card {
-        padding: 28px 16px 32px;
-        border-radius: 48px 48px 32px 32px;
-      }
-      .greeting-name {
-        font-size: 2.0rem;
-      }
-      .message {
-        font-size: 1.1rem;
-      }
-      .emoji-rain {
-        font-size: 2.0rem;
-        gap: 8px 12px;
-      }
-      .action-button {
-        font-size: 1.0rem;
-        padding: 16px 20px;
-      }
-    }
+        .footer-note {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            background: linear-gradient(145deg, rgba(247, 220, 111, 0.15), rgba(241, 196, 15, 0.10));
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 60px;
+            padding: 14px 24px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            width: 100%;
+        }
 
-    /* Для больших экранов (Pro Max) — сохраняем читаемость */
-    @media (min-width: 440px) {
-      .birthday-card {
-        padding: 44px 32px 48px;
-      }
-      .greeting-name {
-        font-size: 2.8rem;
-      }
-      .message {
-        font-size: 1.5rem;
-      }
-      .emoji-rain {
-        font-size: 2.8rem;
-      }
-    }
+        .footer-note:hover {
+            background: linear-gradient(145deg, rgba(247, 220, 111, 0.25), rgba(241, 196, 15, 0.20));
+            border-color: rgba(255, 215, 0, 0.5);
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(241, 196, 15, 0.15);
+        }
 
-    /* Особые настройки для iPhone с Dynamic Island — отступ сверху */
-    @supports (padding-top: env(safe-area-inset-top, 20px)) {
-      .birthday-card {
-        margin-top: 8px;
-      }
-    }
+        .footer-note:active {
+            transform: scale(0.96);
+        }
 
-    /* Тёмная тема (по умолчанию тёмная, но оставим для надёжности) */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: linear-gradient(145deg, #0b0c1a 0%, #1a1b2f 100%);
-      }
-    }
+        .footer-note span {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            letter-spacing: 0.5px;
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            backdrop-filter: none;
+        }
 
-    /* Стиль для выпадающего "сюрприза" (звёздный дождь) — добавляем через JS */
-    .star-burst {
-      position: fixed;
-      pointer-events: none;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 999;
-      overflow: hidden;
-    }
+        .footer-note .arrow-icon {
+            display: inline-block;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
 
-    .star {
-      position: absolute;
-      color: #f1c40f;
-      font-size: 1.8rem;
-      animation: starFall linear forwards;
-      opacity: 0.9;
-      text-shadow: 0 0 20px rgba(241, 196, 15, 0.6);
-    }
+        .footer-note:hover .arrow-icon {
+            transform: translateX(6px);
+        }
 
-    @keyframes starFall {
-      0% { transform: translateY(-40px) rotate(0deg) scale(0.6); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(calc(100vh + 100px)) rotate(720deg) scale(1.4); opacity: 0; }
-    }
-  </style>
+        /* Специально для iPhone 16 Pro / 17 Pro Max */
+        @supports (padding: max(0px)) {
+            body {
+                padding-left: max(20px, env(safe-area-inset-left));
+                padding-right: max(20px, env(safe-area-inset-right));
+                padding-top: max(24px, env(safe-area-inset-top));
+                padding-bottom: max(24px, env(safe-area-inset-bottom));
+            }
+        }
+
+        /* Адаптация под маленькие экраны (на всякий случай) */
+        @media (max-width: 400px) {
+            .birthday-card {
+                padding: 28px 16px 32px;
+                border-radius: 48px 48px 32px 32px;
+            }
+            .greeting-name {
+                font-size: 2.0rem;
+            }
+            .message {
+                font-size: 1.1rem;
+            }
+            .emoji-rain {
+                font-size: 2.0rem;
+                gap: 8px 12px;
+            }
+            .action-button {
+                font-size: 1.0rem;
+                padding: 16px 20px;
+            }
+            .footer-note {
+                padding: 12px 18px;
+            }
+            .footer-note span {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Для больших экранов (Pro Max) — сохраняем читаемость */
+        @media (min-width: 440px) {
+            .birthday-card {
+                padding: 44px 32px 48px;
+            }
+            .greeting-name {
+                font-size: 2.8rem;
+            }
+            .message {
+                font-size: 1.5rem;
+            }
+            .emoji-rain {
+                font-size: 2.8rem;
+            }
+            .footer-note span {
+                font-size: 1.05rem;
+            }
+        }
+
+        /* Особые настройки для iPhone с Dynamic Island — отступ сверху */
+        @supports (padding-top: env(safe-area-inset-top, 20px)) {
+            .birthday-card {
+                margin-top: 8px;
+            }
+        }
+
+        /* Тёмная тема (по умолчанию тёмная, но оставим для надёжности) */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(145deg, #0b0c1a 0%, #1a1b2f 100%) fixed;
+            }
+        }
+
+        /* Стиль для выпадающего "сюрприза" (звёздный дождь) — добавляем через JS */
+        .star-burst {
+            position: fixed;
+            pointer-events: none;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            color: #f1c40f;
+            font-size: 1.8rem;
+            animation: starFall linear forwards;
+            opacity: 0.9;
+            text-shadow: 0 0 20px rgba(241, 196, 15, 0.6);
+        }
+
+        @keyframes starFall {
+            0% {
+                transform: translateY(-40px) rotate(0deg) scale(0.6);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(calc(100vh + 100px)) rotate(720deg) scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        /* Убираем подчёркивание у всех ссылок */
+        a,
+        a:link,
+        a:visited,
+        a:hover,
+        a:active,
+        a:focus {
+            text-decoration: none;
+        }
+    </style>
 </head>
 <body>
-  <div class="birthday-card" role="main" aria-label="Поздравительная открытка">
-    <!-- Имя (можно заменить) -->
-    <h1 class="greeting-name">🎉 Алексей 🎉</h1>
-    <div class="greeting-sub">с днём рождения</div>
-
-    <!-- Текст поздравления -->
-    <div class="message">
-      <span>✨ Пусть сбудутся все мечты!</span><br>
-      Здоровья, счастья, ярких дней<br>
-      и <span>бесконечной удачи</span> 🍀
-    </div>
-
-    <!-- Анимированные эмодзи -->
-    <div class="emoji-rain" aria-hidden="true">
-      <span>🎂</span>
-      <span>🎈</span>
-      <span>🎁</span>
-      <span>🌟</span>
-      <span>🎊</span>
-      <span>💫</span>
-    </div>
-
-    <!-- Кнопка с действием (звёздный дождь) -->
-    <button class="action-button" id="celebrateBtn">
-      <i>🎇</i> Запустить звёзды
-    </button>
-
-    <!-- Нижняя информация -->
-    <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0InSMACqEbUcYKuSm60aG-HHyuwpF4A0xScPxUx_Cl2eQRQ/viewform?usp=publish-editor" text-decoration: none target="_blank">
-        <div class="footer-note">
-            <span>Если будет желание оставить ответ, жми на эту кнопку</span>
-        </div>
-    </a>
-    
-  </div>
-
-  <style>
-    a,
-a:link,
-a:visited,
-a:hover,
-a:active,
-a:focus {
-  text-decoration: none;
+    <div class="birthday-card" role="main" aria-label="Поздравительная открытка">
+        <!-- Имя (можно заменить) -->
+        <h1 class="greeting-name">🎉 Алексей 🎉</h1>
+        <style>
+            /* ============================================
+   ЗОЛОТОЙ ПЕРЕЛИВАЮЩИЙСЯ БЛЕСК (ВСЕ СТИЛИ В ОДНОМ БЛОКЕ)
+   ============================================ */
+.greeting-name {
+  /* Размер и начертание */
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin-bottom: 8px;
+  
+  /* ЗОЛОТОЙ ГРАДИЕНТ С ПЕРЕЛИВАНИЕМ */
+  background: linear-gradient(
+    90deg,
+    #f9d976 0%,
+    #f39c12 15%,
+    #f7dc6f 30%,
+    #d4a017 45%,
+    #f9d976 60%,
+    #f1c40f 75%,
+    #f39c12 90%,
+    #f9d976 100%
+  );
+  background-size: 300% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  
+  /* АНИМАЦИЯ ПЕРЕЛИВАНИЯ */
+  animation: goldShine 10 s linear infinite;
+  
+  /* СВЕЧЕНИЕ */
+  text-shadow: 0 0 30px rgba(241, 196, 15, 0.3);
+  
+  /* Плавность */
+  transition: all 0.3s ease;
 }
-  </style>
 
-  <script>
-    (function() {
-      'use strict';
+/* КЛЮЧЕВЫЕ КАДРЫ ДЛЯ ПЕРЕЛИВАНИЯ */
+@keyframes goldShine {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 300% 50%;
+  }
+}
 
-      // Элементы для «звёздного салюта»
-      const button = document.getElementById('celebrateBtn');
-      let burstActive = false;
+/* ============================================
+   АДАПТАЦИЯ ПОД ЭКРАНЫ
+   ============================================ */
 
-      // Набор эмодзи для звёздного дождя
-      const starEmojis = ['⭐', '🌟', '✨', '🎇', '💛', '🔥', '🌈', '🎆', '💫', '⚡'];
+/* Маленькие экраны */
+@media (max-width: 400px) {
+  .greeting-name {
+    font-size: 2.0rem;
+    text-shadow: 0 0 20px rgba(241, 196, 15, 0.2);
+  }
+}
 
-      function createStarBurst() {
-        // Удаляем предыдущий дождь, если есть
-        const oldBurst = document.querySelector('.star-burst');
-        if (oldBurst) oldBurst.remove();
+/* Большие экраны (iPhone 16 Pro, 17 Pro Max) */
+@media (min-width: 440px) {
+  .greeting-name {
+    font-size: 2.8rem;
+    text-shadow: 0 0 40px rgba(241, 196, 15, 0.4);
+  }
+}
 
-        const container = document.createElement('div');
-        container.className = 'star-burst';
-        document.body.appendChild(container);
+/* ============================================
+   БОНУС: ЭФФЕКТ ПРИ НАВЕДЕНИИ
+   ============================================ */
 
-        // Количество звёзд (адаптивно под производительность)
-        const count = window.innerWidth < 430 ? 30 : 45;
 
-        for (let i = 0; i < count; i++) {
-          const star = document.createElement('div');
-          star.className = 'star';
-          // Случайный эмодзи
-          star.textContent = starEmojis[Math.floor(Math.random() * starEmojis.length)];
-          // Случайное положение по горизонтали
-          star.style.left = Math.random() * 100 + '%';
-          // Случайный размер (от 1.2rem до 2.8rem)
-          const size = 1.2 + Math.random() * 1.8;
-          star.style.fontSize = size + 'rem';
-          // Случайная длительность анимации (от 2.5 до 4.5 сек)
-          const duration = 2.5 + Math.random() * 2.5;
-          star.style.animationDuration = duration + 's';
-          // Случайная задержка (0 – 1.5 сек)
-          star.style.animationDelay = (Math.random() * 1.8) + 's';
-          // Небольшой разброс поворота
-          star.style.transform = `rotate(${Math.random() * 360}deg)`;
-          container.appendChild(star);
-        }
+        </style>
+        <div class="greeting-sub">с днём рождения</div>
 
-        // Удаляем контейнер после завершения всех анимаций (макс длительность + задержка)
-        const maxDuration = 4.5 + 1.8; // 6.3 сек
-        setTimeout(() => {
-          if (container.parentNode) {
-            container.remove();
-          }
-        }, maxDuration * 1000 + 300);
-      }
+        <!-- Текст поздравления -->
+        <div class="message">
+            <span>✨ Пусть сбудутся все мечты!</span><br>
+            Здоровья, счастья, ярких дней<br>
+            и <span>бесконечной удачи</span> 🍀
+        </div>
 
-      // Обработчик кнопки с тактильным откликом (vibro, если доступно)
-      function handleCelebrate() {
-        // Лёгкая вибрация на iPhone (если поддерживается)
-        if (navigator.vibrate) {
-          navigator.vibrate(10);
-        }
+        <!-- Анимированные эмодзи -->
+        <div class="emoji-rain" aria-hidden="true">
+            <span>🎂</span>
+            <span>🎈</span>
+            <span>🎁</span>
+            <span>🌟</span>
+            <span>🎊</span>
+            <span>💫</span>
+        </div>
 
-        // Создаём звёздный дождь
-        createStarBurst();
+        <!-- Кнопка с действием (звёздный дождь) -->
+        <button class="action-button" id="celebrateBtn">
+            <i>🎇</i> Запустить звёзды
+        </button>
 
-        // Небольшой визуальный фидбек на кнопку
-        button.style.transform = 'scale(0.92)';
-        setTimeout(() => {
-          button.style.transform = '';
-        }, 150);
-      }
+        <!-- Ссылка-кнопка внизу (исправлено) -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0InSMACqEbUcYKuSm60aG-HHyuwpF4A0xScPxUx_Cl2eQRQ/viewform?usp=publish-editor" target="_blank" class="footer-link">
+            <div class="footer-note">
+                <span>📝 Если будет желание оставить ответ, жми на эту кнопку</span>
+            </div>
+        </a>
 
-      // Назначаем обработчик
-      button.addEventListener('click', handleCelebrate);
+    </div>
 
-      // Для поддержки touch-событий (iPhone)
-      button.addEventListener('touchstart', function(e) {
-        // Предотвращаем двойной срабатывание на мобильных
-        if (!e.defaultPrevented) {
-          // Можно добавить лёгкую вибрацию при касании
-          if (navigator.vibrate) navigator.vibrate(5);
-        }
-      }, { passive: true });
+    <script>
+        (function() {
+            'use strict';
 
-      // Дополнительно: если пользователь нажимает на карточку (но не на кнопку) – тоже можно сделать салют, но не обязательно
-      // Но оставим только кнопку, чтобы не мешать.
+            // Элементы для «звёздного салюта»
+            const button = document.getElementById('celebrateBtn');
+            let burstActive = false;
 
-    })();
-  </script>
+            // Набор эмодзи для звёздного дождя
+            const starEmojis = ['⭐', '🌟', '✨', '🎇', '💛', '🔥', '🌈', '🎆', '💫', '⚡'];
+
+            function createStarBurst() {
+                // Удаляем предыдущий дождь, если есть
+                const oldBurst = document.querySelector('.star-burst');
+                if (oldBurst) oldBurst.remove();
+
+                const container = document.createElement('div');
+                container.className = 'star-burst';
+                document.body.appendChild(container);
+
+                // Количество звёзд (адаптивно под производительность)
+                const count = window.innerWidth < 430 ? 30 : 45;
+
+                for (let i = 0; i < count; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    // Случайный эмодзи
+                    star.textContent = starEmojis[Math.floor(Math.random() * starEmojis.length)];
+                    // Случайное положение по горизонтали
+                    star.style.left = Math.random() * 100 + '%';
+                    // Случайный размер (от 1.2rem до 2.8rem)
+                    const size = 1.2 + Math.random() * 1.8;
+                    star.style.fontSize = size + 'rem';
+                    // Случайная длительность анимации (от 2.5 до 4.5 сек)
+                    const duration = 2.5 + Math.random() * 2.5;
+                    star.style.animationDuration = duration + 's';
+                    // Случайная задержка (0 – 1.5 сек)
+                    star.style.animationDelay = (Math.random() * 1.8) + 's';
+                    // Небольшой разброс поворота
+                    star.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    container.appendChild(star);
+                }
+
+                // Удаляем контейнер после завершения всех анимаций (макс длительность + задержка)
+                const maxDuration = 4.5 + 1.8; // 6.3 сек
+                setTimeout(() => {
+                    if (container.parentNode) {
+                        container.remove();
+                    }
+                }, maxDuration * 1000 + 300);
+            }
+
+            // Обработчик кнопки с тактильным откликом (vibro, если доступно)
+            function handleCelebrate() {
+                // Лёгкая вибрация на iPhone (если поддерживается)
+                if (navigator.vibrate) {
+                    navigator.vibrate(10);
+                }
+
+                // Создаём звёздный дождь
+                createStarBurst();
+
+                // Небольшой визуальный фидбек на кнопку
+                button.style.transform = 'scale(0.92)';
+                setTimeout(() => {
+                    button.style.transform = '';
+                }, 150);
+            }
+
+            // Назначаем обработчик
+            button.addEventListener('click', handleCelebrate);
+
+            // Для поддержки touch-событий (iPhone)
+            button.addEventListener('touchstart', function(e) {
+                // Предотвращаем двойной срабатывание на мобильных
+                if (!e.defaultPrevented) {
+                    // Можно добавить лёгкую вибрацию при касании
+                    if (navigator.vibrate) navigator.vibrate(5);
+                }
+            }, { passive: true });
+
+        })();
+    </script>
 </body>
 </html>
