@@ -376,7 +376,7 @@
         <!-- Имя (можно заменить) -->
         <h1 class="greeting-name">🎉 Алексей 🎉</h1>
         <style>
-            /* ============================================
+/* ============================================
    ЗОЛОТОЙ ПЕРЕЛИВАЮЩИЙСЯ БЛЕСК (ВСЕ СТИЛИ В ОДНОМ БЛОКЕ)
    ============================================ */
 .greeting-name {
@@ -404,7 +404,7 @@
   color: transparent;
   
   /* АНИМАЦИЯ ПЕРЕЛИВАНИЯ */
-  animation: goldShine 10 s linear infinite;
+  animation: goldShine 3s linear infinite;
   
   /* СВЕЧЕНИЕ */
   text-shadow: 0 0 30px rgba(241, 196, 15, 0.3);
@@ -447,15 +447,45 @@
    БОНУС: ЭФФЕКТ ПРИ НАВЕДЕНИИ
    ============================================ */
 
+.greeting-name {
+  animation-duration: 5s;
+  text-shadow: 
+    0 0 50px rgba(241, 196, 15, 0.6),
+    0 0 100px rgba(241, 196, 15, 0.3);
+  transform: scale(1.02);
+}
+
+/* ============================================
+   АДАПТАЦИЯ ПОД ЭКРАНЫ
+   ============================================ */
+
+/* Маленькие экраны */
+@media (max-width: 400px) {
+  .greeting-name {
+    font-size: 2.0rem;
+    text-shadow: 0 0 20px rgba(241, 196, 15, 0.2);
+  }
+}
+
+/* Большие экраны (iPhone 16 Pro, 17 Pro Max) */
+@media (min-width: 440px) {
+  .greeting-name {
+    font-size: 2.8rem;
+    text-shadow: 0 0 40px rgba(241, 196, 15, 0.4);
+  }
+}
+
+
 
         </style>
         <div class="greeting-sub">с днём рождения</div>
 
         <!-- Текст поздравления -->
         <div class="message">
-            <span>✨ Пусть сбудутся все мечты!</span><br>
-            Здоровья, счастья, ярких дней<br>
-            и <span>бесконечной удачи</span> 🍀
+            ✨ Желаю успехов в учебе и во всех начинаниях,<br>
+            счастья, чтоб никакие трудности на твоем пути тебя не останавливали, и главное - <br>
+            <span>кавказского долголетия!</span><br>
+            Да будет на то воля всевышнего
         </div>
 
         <!-- Анимированные эмодзи -->
@@ -476,7 +506,7 @@
         <!-- Ссылка-кнопка внизу (исправлено) -->
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSd0InSMACqEbUcYKuSm60aG-HHyuwpF4A0xScPxUx_Cl2eQRQ/viewform?usp=publish-editor" target="_blank" class="footer-link">
             <div class="footer-note">
-                <span>📝 Если будет желание оставить ответ, жми на эту кнопку</span>
+                <span>📝 Если будет желание оставить ответ, жми на кнопку</span>
             </div>
         </a>
 
